@@ -5,10 +5,340 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sudoku Guru</title>
+  <link rel="stylesheet" type="text/css" href="src/style.css">
 </head>
 
 <body>
-  <button onclick="sudokuGame.solve()">Solve</button>
+  <div id="csv">
+    <input id="csv-input" value="" placeholder="space separated list of values" />
+    <button id="formatBtn" onclick="fillInput()">Reformat as Grid</button>
+  </div>
+  <div id="presets">
+    <h3>Sample Inputs</h3>
+    <label>Difficulty:</label>
+    <select id="presetSelect">
+      <option>Easy</option>
+      <option>Medium</option>
+      <option>Hard</option>
+    </select>
+    <button onclick="fillPreset()">Fill Grid</button>
+  </div>
+  <div class="puzzle-container" id="grid">
+    <h3>Input Puzzle</h3>
+    <div class="puzzle">
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid11" />
+          <input class="gridInput" id="grid12" />
+          <input class="gridInput" id="grid13" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid14" />
+          <input class="gridInput" id="grid15" />
+          <input class="gridInput" id="grid16" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid17" />
+          <input class="gridInput" id="grid18" />
+          <input class="gridInput" id="grid19" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid21" />
+          <input class="gridInput" id="grid22" />
+          <input class="gridInput" id="grid23" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid24" />
+          <input class="gridInput" id="grid25" />
+          <input class="gridInput" id="grid26" /></div>
+        <div class="col">
+          <input class="gridInput" id="grid27" />
+          <input class="gridInput" id="grid28" />
+          <input class="gridInput" id="grid29" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid31" />
+          <input class="gridInput" id="grid32" />
+          <input class="gridInput" id="grid33" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid34" />
+          <input class="gridInput" id="grid35" />
+          <input class="gridInput" id="grid36" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid37" />
+          <input class="gridInput" id="grid38" />
+          <input class="gridInput" id="grid39" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid41" />
+          <input class="gridInput" id="grid42" />
+          <input class="gridInput" id="grid43" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid44" />
+          <input class="gridInput" id="grid45" />
+          <input class="gridInput" id="grid46" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid47" />
+          <input class="gridInput" id="grid48" />
+          <input class="gridInput" id="grid49" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid51" />
+          <input class="gridInput" id="grid52" />
+          <input class="gridInput" id="grid53" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid54" />
+          <input class="gridInput" id="grid55" />
+          <input class="gridInput" id="grid56" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid57" />
+          <input class="gridInput" id="grid58" />
+          <input class="gridInput" id="grid59" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid61" />
+          <input class="gridInput" id="grid62" />
+          <input class="gridInput" id="grid63" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid64" />
+          <input class="gridInput" id="grid65" />
+          <input class="gridInput" id="grid66" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid67" />
+          <input class="gridInput" id="grid68" />
+          <input class="gridInput" id="grid69" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid71" />
+          <input class="gridInput" id="grid72" />
+          <input class="gridInput" id="grid73" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid74" />
+          <input class="gridInput" id="grid75" />
+          <input class="gridInput" id="grid76" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid77" />
+          <input class="gridInput" id="grid78" />
+          <input class="gridInput" id="grid79" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"><input class="gridInput" id="grid81" />
+          <input class="gridInput" id="grid82" />
+          <input class="gridInput" id="grid83" /></div>
+        <div class="col">
+          <input class="gridInput" id="grid84" />
+          <input class="gridInput" id="grid85" />
+          <input class="gridInput" id="grid86" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid87" />
+          <input class="gridInput" id="grid88" />
+          <input class="gridInput" id="grid89" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid91" />
+          <input class="gridInput" id="grid92" />
+          <input class="gridInput" id="grid93" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid94" />
+          <input class="gridInput" id="grid95" />
+          <input class="gridInput" id="grid96" />
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid97" />
+          <input class="gridInput" id="grid98" />
+          <input class="gridInput" id="grid99" />
+        </div>
+      </div>
+    </div>
+    <button onclick="initGame()">Solve</button>
+  </div>
+  <div class="puzzle-container" id="grid_filled">
+    <h3>Output Puzzle</h3>
+    <div class="puzzle">
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid_filled_11" readonly/>
+          <input class="gridInput" id="grid_filled_12" readonly/>
+          <input class="gridInput" id="grid_filled_13" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_14" readonly/>
+          <input class="gridInput" id="grid_filled_15" readonly/>
+          <input class="gridInput" id="grid_filled_16" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_17" readonly/>
+          <input class="gridInput" id="grid_filled_18" readonly/>
+          <input class="gridInput" id="grid_filled_19" readonly/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid_filled_21" readonly/>
+          <input class="gridInput" id="grid_filled_22" readonly/>
+          <input class="gridInput" id="grid_filled_23" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_24" readonly/>
+          <input class="gridInput" id="grid_filled_25" readonly/>
+          <input class="gridInput" id="grid_filled_26" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_27" readonly/>
+          <input class="gridInput" id="grid_filled_28" readonly/>
+          <input class="gridInput" id="grid_filled_29" readonly/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid_filled_31" readonly/>
+          <input class="gridInput" id="grid_filled_32" readonly/>
+          <input class="gridInput" id="grid_filled_33" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_34" readonly/>
+          <input class="gridInput" id="grid_filled_35" readonly/>
+          <input class="gridInput" id="grid_filled_36" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_37" readonly/>
+          <input class="gridInput" id="grid_filled_38" readonly/>
+          <input class="gridInput" id="grid_filled_39" readonly/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid_filled_41" readonly/>
+          <input class="gridInput" id="grid_filled_42" readonly/>
+          <input class="gridInput" id="grid_filled_43" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_44" readonly/>
+          <input class="gridInput" id="grid_filled_45" readonly/>
+          <input class="gridInput" id="grid_filled_46" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_47" readonly/>
+          <input class="gridInput" id="grid_filled_48" readonly/>
+          <input class="gridInput" id="grid_filled_49" readonly/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid_filled_51" readonly/>
+          <input class="gridInput" id="grid_filled_52" readonly/>
+          <input class="gridInput" id="grid_filled_53" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_54" readonly/>
+          <input class="gridInput" id="grid_filled_55" readonly/>
+          <input class="gridInput" id="grid_filled_56" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_57" readonly/>
+          <input class="gridInput" id="grid_filled_58" readonly/>
+          <input class="gridInput" id="grid_filled_59" readonly/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid_filled_61" readonly/>
+          <input class="gridInput" id="grid_filled_62" readonly/>
+          <input class="gridInput" id="grid_filled_63" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_64" readonly/>
+          <input class="gridInput" id="grid_filled_65" readonly/>
+          <input class="gridInput" id="grid_filled_66" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_67" readonly/>
+          <input class="gridInput" id="grid_filled_68" readonly/>
+          <input class="gridInput" id="grid_filled_69" readonly/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid_filled_71" readonly/>
+          <input class="gridInput" id="grid_filled_72" readonly/>
+          <input class="gridInput" id="grid_filled_73" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_74" readonly/>
+          <input class="gridInput" id="grid_filled_75" readonly/>
+          <input class="gridInput" id="grid_filled_76" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_77" readonly/>
+          <input class="gridInput" id="grid_filled_78" readonly/>
+          <input class="gridInput" id="grid_filled_79" readonly/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid_filled_81" readonly/>
+          <input class="gridInput" id="grid_filled_82" readonly/>
+          <input class="gridInput" id="grid_filled_83" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_84" readonly/>
+          <input class="gridInput" id="grid_filled_85" readonly/>
+          <input class="gridInput" id="grid_filled_86" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_87" readonly/>
+          <input class="gridInput" id="grid_filled_88" readonly/>
+          <input class="gridInput" id="grid_filled_89" readonly/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input class="gridInput" id="grid_filled_91" readonly/>
+          <input class="gridInput" id="grid_filled_92" readonly/>
+          <input class="gridInput" id="grid_filled_93" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_94" readonly/>
+          <input class="gridInput" id="grid_filled_95" readonly/>
+          <input class="gridInput" id="grid_filled_96" readonly/>
+        </div>
+        <div class="col">
+          <input class="gridInput" id="grid_filled_97" readonly/>
+          <input class="gridInput" id="grid_filled_98" readonly/>
+          <input class="gridInput" id="grid_filled_99" readonly/>
+        </div>
+      </div>
+    </div>
+    <button onclick="clearGrid()">Clear</button>
+  </div>
+  <p id="error-message" style="display:none;"></p>
 </body>
 <script src="src/solver.js"></script>
 

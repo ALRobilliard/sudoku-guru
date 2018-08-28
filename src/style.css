@@ -1,0 +1,75 @@
+.gridInput {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+}
+.original {
+  color: #ff0000;
+}
+
+.puzzle {
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  padding: 2px;
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.row {
+  width: fit-content;
+}
+
+.row:nth-child(3),
+.row:nth-child(6) {
+  border-bottom: 1px solid #000000;
+  padding-bottom: 4px;
+}
+
+.row:nth-child(4),
+.row:nth-child(7) {
+  padding-top: 4px;
+}
+
+.col {
+  display: inline-block;
+  border-right: 1px solid #000000;
+  padding-right: 4px;
+}
+.row .col:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.puzzle .row .col input {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: #424242;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  height: 30px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #646464;
+}
+
+#csvInput {
+  height: 30px;
+  width: 50%;
+  padding-left: 5px;
+}
+
+.puzzle-container {
+  display: inline-block;
+}
+
+#grid_filled {
+  margin-left: 5rem;
+}

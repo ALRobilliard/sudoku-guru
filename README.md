@@ -12,7 +12,7 @@ Run it through **Prettier**, you know the drill.
 
 ## Technologies Used
 
-I wanted to have something easy to run and view in the browser. However, the Backtracking Algorithm used also benefits from having a basic OOB structure.
+I wanted to have something easy to run and view in the browser. However, the Backtracking Algorithm used also benefits from having a basic OOP structure.
 **TypeScript** seemed up to the task.
 
 While TypeScript certainly does the brunt of the work, there is also **HTML** and **CSS** lying around to structure the basic form interface for interacting with the algorithm.
